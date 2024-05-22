@@ -21,12 +21,12 @@ const server = http.createServer((req, res) => {
 
     res.write('<body>');
 
-    res.write(`<a href="/10">10%</a>&nbsp;`);
-    res.write(`<a href="/30">30%</a>&nbsp;`);
-    res.write(`<a href="/50">50%</a>&nbsp;`);
+    res.write(`<a href="/10">10%</a>&nbsp;&nbsp;&nbsp;&nbsp;`);
+    res.write(`<a href="/30">30%</a>&nbsp;&nbsp;&nbsp;&nbsp;`);
+    res.write(`<a href="/50">50%</a>&nbsp;&nbsp;&nbsp;&nbsp;`);
 
     res.write(`<h1>Daugybos lentelė su ${level}% paslėptų laukų</h1>`);
-    res.write('<table border="1">');
+    res.write('<table border="1" style="padding: 15px">');
 
     const probability = level / 100;
 
@@ -34,9 +34,9 @@ const server = http.createServer((req, res) => {
         res.write('<tr>');
         for (let j = 1; j <= 10; j++) {
             if (Math.random() < probability) {
-                res.write('<td></td>');
+                res.write('<td style="padding: 15px;"></td>');
             } else {
-                res.write(`<td>${i * j}</td>`);
+                res.write(`<td style="padding: 15px; text-align:center">${i * j}</td>`);
             }
         }
         res.write('</tr>');
